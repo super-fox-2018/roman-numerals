@@ -1,5 +1,21 @@
 function to_roman (num) {
-  // your implementation code here
+  var ang_romawi = ['I','IV','V','IX','X','XL','L','XC','C','CD','D','CM','M'];
+  var ang_latin = [1,4,5,9,10,40,50,90,100,400,500,900,1000];
+  var romawi = [];
+  while(num>0){
+    for(var i = 0; i < ang_latin.length; i++){
+      if (num>=ang_latin[ang_latin.length-1]) {
+        romawi.push(ang_romawi[ang_romawi.length-1])
+        num -= ang_latin[ang_latin.length-1];
+
+      }
+      else if(num >= ang_latin[i] && num < ang_latin[i+1]){
+          romawi.push(ang_romawi[i]);
+          num -= ang_latin[i];
+      }
+    }
+  }
+  return romawi;
 }
 
 // Drive code
