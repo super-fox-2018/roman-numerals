@@ -1,5 +1,10 @@
 function to_roman (num) {
   // your implementation code here
+  var OnetoNine = ["","I","II","III","IV","V","VI","VII","VIII","IX"]
+  var TentoNinety = ["","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"]
+  var OneHundredtoNineHundred = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"]
+  var OneThousandtoThreeThousand = ["","M","MM","MMM"]
+  return OneThousandtoThreeThousand[parseInt(num/1000)]+OneHundredtoNineHundred[parseInt(num/100)%10]+TentoNinety[parseInt(num/10)%10]+OnetoNine[num%10]
 }
 
 // Drive code
