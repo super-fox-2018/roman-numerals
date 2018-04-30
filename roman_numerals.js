@@ -1,5 +1,32 @@
 function to_roman (num) {
-  // your implementation code here
+  var roman = ["I","IV","V","IX","X", "XL", "L", "C", "CD", "D", "CM", "M"];
+  var number = [1, 4, 5, 9, 10, 40, 50, 100, 400, 500, 900, 1000];
+  var arr = [];
+
+
+do{
+  for( var i = 0; i < number.length; i++){
+    if(num === number[i]){
+      arr.push(roman[i]);
+      num -= number[i];
+    }
+
+    if((num - number[i-1]) > 0 && (num - number[i]) < 0){
+      arr.push(roman[i-1]);
+      num -= number[i-1];
+      }
+
+    if((num - number[number.length -1]) > 0){
+      arr.push(roman[number.length - 1]);
+      num -= number[number.length - 1];
+    }
+  }
+}while(num > 0)
+
+arr = arr.join("");
+return arr;
+
+
 }
 
 // Drive code
