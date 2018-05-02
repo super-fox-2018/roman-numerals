@@ -1,4 +1,4 @@
-function to_roman (num) {
+function to_roman_before (num) {
   // your implementation code here
 
   // var arr = String(num);
@@ -62,11 +62,45 @@ function to_roman (num) {
     }
   }
 
-
   var display = roman.join('');
   return display;
 }
 
+function to_roman(num) {
+  // const numerals = [
+  //   { 1000: 'M' },
+  //   { 900: 'CM' },
+  //   { 500: 'D' },
+  //   { 400: 'CD' },
+  //   { 100: 'C' },
+  //   { 90: 'XC' },
+  //   { 50: 'L' },
+  //   { 40: 'XL' },
+  //   { 10: 'X' },
+  //   { 9: 'IX' },
+  //   { 5: 'V' },
+  //   { 4: 'IV' },
+  //   { 1: 'I' }
+  // ]
+
+  // const numerals = { 1000: 'M', 900: 'CM', 500: 'D', 400: 'CD', 100: 'C', 90: 'XC',
+  //                    50: 'L', 40: 'XL', 10: 'X', 9: 'IX', 5: 'V', 4: 'IV', 1: 'I'};
+
+  const numeral = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  const roman = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+
+  let output = [];
+
+  for (let i = 0; i < numeral.length; i++) {
+    while (num >= numeral[i]) {
+      output.push(roman[i]);
+      num -= numeral[i]
+    }
+  }
+
+  return output.join('');
+
+}
 // Drive code
 console.log('My totally sweet testing script for new roman\n')
 console.log('input | expected | actual')
