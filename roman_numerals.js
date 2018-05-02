@@ -4,29 +4,28 @@ function to_roman (num) {
   var arr = [];
 
 
-do{
-  for( var i = 0; i < number.length; i++){
-    if(num === number[i]){
-      arr.push(roman[i]);
-      num -= number[i];
-    }
-
-    if((num - number[i-1]) > 0 && (num - number[i]) < 0){
-      arr.push(roman[i-1]);
-      num -= number[i-1];
+  do{
+    for( var i = number.length - 1; i > 0; i--){
+      if(num < number[i] && num >= number[i-1]){
+        if(num === number[i]){
+          arr.push(roman[i]);
+          num -= number[i];
+        }
+        else{
+          arr.push(roman[i-1]);
+          num -= number[i-1];
+        }
       }
-
-    if((num - number[number.length -1]) > 0){
-      arr.push(roman[number.length - 1]);
-      num -= number[number.length - 1];
+      else if(num >= number[number.length - 1]){
+        arr.push(roman[number.length - 1]);
+        num -= number[number.length - 1];
+      }
     }
-  }
-}while(num > 0)
 
-arr = arr.join("");
-return arr;
+  }while(num > 0)
 
-
+  arr = arr.join("");
+  return arr;
 }
 
 // Drive code
